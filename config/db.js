@@ -7,14 +7,6 @@ const sequelize = new Sequelize("iycinternal","iyc_dev","wA42t4gu",{
     dialect : "mysql"
 });
 
-// const sequelize = new Sequelize("testing","root","Vamshi@111047",{
-//     host : "localhost", 
-//     port : 3306,
-//     dialect : "mysql"
-//     // logging: false,
-// });
-
-
 sequelize.authenticate()
 .then((res)=>{
     console.log("Connection Successfull to db");
