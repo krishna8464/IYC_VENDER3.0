@@ -610,6 +610,12 @@ exports.createVender = async (req, res) => {
   // console.log(body)
   try {
     let vender = await Vender.create(body);
+    let jsondistrictString  = vender.district_code
+    let historydata = JSON.parse(vender.history)
+    
+    let districtdata = JSON.parse(jsondistrictString);
+    vender.district_code=districtdata
+    vender.history = historydata
     res.status(201).json(vender);
   } catch (error) {
     res.status(409).json({ message: "Vender already exist" });
